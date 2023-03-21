@@ -4,6 +4,7 @@ from tkinter import messagebox
 
 # Klase, kurā tiek turēti metodi lai stradāt ar datubazei
 class Datubaze:
+    # Veido databaze ja ta neeksistē. 
     def __init__(self, db):
         self.conn = sqlite3.connect(db)
         self.cur = self.conn.cursor()
@@ -38,6 +39,7 @@ class Datubaze:
     def __del__(self):
         self.conn.close()
 
+# Databazes veidošana nosaucitā mapē.
 db = Datubaze('./store.db')
 
 
