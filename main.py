@@ -66,7 +66,7 @@ def pievienot_dalu():
 
 
 # Funkcija, kura ievada informaciju par daļam, kad lietotais izvelē jebkuru no saraksta
-def izvele_dalu(izveletas_dalas):
+def izvele_dalu():
     try:
         global izveleta_dala
         indeksa = dalas_saraksts.curselection()[0]
@@ -155,7 +155,7 @@ dalas_saraksts.configure(yscrollcommand=ritjosla.set)
 ritjosla.configure(command=dalas_saraksts.yview)
 
 # Pievieno izvele pie sarakstu
-dalas_saraksts.bind('<<ListboxSelect>>', izvele_dalu)
+dalas_saraksts.bind('<<ListboxSelect>>', lambda e: izvele_dalu())
 
 # Pogas
 pievieno_poga = Button(logs, text='Pievieno Daļu', width=12, command=pievienot_dalu)
