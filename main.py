@@ -42,9 +42,8 @@ class Datubaze:
 # Databazes veidošana nosaucitā mapē.
 db = Datubaze('./store.db')
 
-
 # Funkcija, lai mainit datus sarakstā
-def pievienot_saraksta():
+def datu_lasisana():
     dalas_saraksts.delete(0, END)
     for rinda in db.fetch():
         dalas_saraksts.insert(END, rinda)
@@ -62,7 +61,7 @@ def pievienot_dalu():
                             veikals_teksts.get(), cena_teksts.get()))
     
     notirit_tekstu()
-    pievienot_saraksta()
+    datu_lasisana()
 
 
 # Funkcija, kura ievada informaciju par daļam, kad lietotais izvelē jebkuru no saraksta
@@ -87,13 +86,13 @@ def izvele_dalu():
 def nonemt_dalu():
     db.remove(izveleta_dala[0])
     notirit_tekstu()
-    pievienot_saraksta()
+    datu_lasisana()
 
 # Funkcija, lai izlabot informaciju par kādu daļu
 def mainit_dalu():
     db.update(izveleta_dala[0], dala_teksts.get(), klients_teksts.get(),
               veikals_teksts.get(), cena_teksts.get())
-    pievienot_saraksta()
+    datu_lasisana()
 
 # Funkcija, kura noņema visu informaciju no laukiem
 def notirit_tekstu():
@@ -175,7 +174,7 @@ logs.title('Daļas Noliktāva')
 logs.geometry('500x350')
 
 # Funkcija, kura ievada datus, kas lietotajs sāk programmu
-pievienot_saraksta()
+datu_lasisana()
 
 # TKintera galvenais cikls, kurš vada GUI procesus
 logs.mainloop()
