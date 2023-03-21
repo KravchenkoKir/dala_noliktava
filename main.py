@@ -66,7 +66,7 @@ def pievienot_dalu():
 
 
 # Funkcija, kura ievada informaciju par daļam, kad lietotais izvelē jebkuru no saraksta
-def izvele_dalu(event):
+def izvele_dalu(izveletas_dalas):
     try:
         global izveleta_dala
         indeksa = dalas_saraksts.curselection()[0]
